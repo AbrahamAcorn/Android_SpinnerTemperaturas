@@ -9,14 +9,14 @@ import android.widget.Spinner;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    Spinner spinnerConvertir,spinnerConvertirA;
+    Spinner sConvert,spinnerConvertirA;
     EditText cajaConversion,cajaResultado;
     double temp,res;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        spinnerConvertir = findViewById(R.id.spinnerConvertir);
+        sConvert = findViewById(R.id.spinnerConvertir);
         spinnerConvertirA = findViewById(R.id.spinnerConvertirA);
         cajaConversion = findViewById(R.id.caja1);
         cajaResultado = findViewById(R.id.caja2);
@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerConvertirA.setAdapter(adapter1);
         spinnerConvertirA.setOnItemSelectedListener(this);
 
-        spinnerConvertir.setAdapter(adapter);
-        spinnerConvertir.setOnItemSelectedListener(this);
+        sConvert.setAdapter(adapter);
+        sConvert.setOnItemSelectedListener(this);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (spinnerConvertir.getSelectedItem().toString().equalsIgnoreCase("Fahrenheit")){
+        if (sConvert.getSelectedItem().toString().equalsIgnoreCase("Fahrenheit")){
             switch (spinnerConvertirA.getSelectedItem().toString()){
                 case "Fahrenheit":
                     cajaResultado.setText(cajaConversion.getText());
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
 
         }//fahrenheit
-        else if (spinnerConvertir.getSelectedItem().toString().equalsIgnoreCase("Celsius")){
+        else if (sConvert.getSelectedItem().toString().equalsIgnoreCase("Celsius")){
             switch (spinnerConvertirA.getSelectedItem().toString()){
                 case "Fahrenheit":
                     temp=Double.parseDouble(String.valueOf(cajaConversion.getText()));
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     break;
             }
         }//celsius
-        else if (spinnerConvertir.getSelectedItem().toString().equalsIgnoreCase("Kelvin")){
+        else if (sConvert.getSelectedItem().toString().equalsIgnoreCase("Kelvin")){
             switch (spinnerConvertirA.getSelectedItem().toString()){
                 case "Fahrenheit":
                     temp=Double.parseDouble(String.valueOf(cajaConversion.getText()));
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     break;
             }
         }//kelvin
-        else if (spinnerConvertir.getSelectedItem().toString().equalsIgnoreCase("Rankine")){
+        else if (sConvert.getSelectedItem().toString().equalsIgnoreCase("Rankine")){
             switch (spinnerConvertirA.getSelectedItem().toString()){
                 case "Fahrenheit":
                     temp=Double.parseDouble(String.valueOf(cajaConversion.getText()));
